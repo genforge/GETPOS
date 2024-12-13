@@ -259,5 +259,10 @@ after_migrate = "getpos.getpos.after_migrate.main"
 
 # no_csrf=["getpos.getpos.api.login"]
 
+on_session_creation = "getpos.Customization.custom_header.set_user_active"
+on_logout = "getpos.Customization.custom_header.set_user_inactive"
 
+
+# website_route_rules = [{'from_route': '/getpos-web/<path:app_path>', 'to_route': 'getpos-web'}, {'from_route': '/getpos-web/<path:app_path>', 'to_route': 'getpos-web'}, {'from_route': '/GetPOS/<path:app_path>', 'to_route': 'GetPOS'},]
+after_request = "getpos.Customization.custom_header.after_request"
 website_route_rules = [{'from_route': '/getpos-react/<path:app_path>', 'to_route': 'getpos-react'},]
